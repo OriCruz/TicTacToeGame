@@ -8,8 +8,29 @@
     <script defer src="game.js"></script>
     <title>Tic-Tac-Toe Game</title>
 </head>
+
 <body>
     <h1>Tic Tac Toe</h1>
+    <div class="buttons">
+            <button id="start">START</button>
+            <button id="restart">RESTART</button>
+        </div>
+        <div class="modal">
+            <div class="modContent">
+                <span class="close">&times;</span>
+                <div class="msg">
+                Welcome to Tic Tac Toe, <br> 
+                here you'll be playing againt <span id="grinch">THE GRINCH</span>. Here are the instructions: <br>
+                <ul>
+                    <li>You are the X and the Grinch will be O.</li>
+                    <li>Click on the place you want your move to be. Once you place your move, it is the Grinch's turn</li>
+                    <li>The game will keep going until one of you wins or you draw.</li>
+                </ul>
+                Good luck! 
+            </div>
+            </div>
+        </div>
+
     <div class="parent-container-of-game">
         <div class="gameBoard">
             <div class="box">0</div>

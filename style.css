@@ -1,6 +1,16 @@
-h1{ 
-   
+html{
+    min-height: 100%;
+}
+body{
+    /* min-height: 100%; */
+    margin: 0;
+    background-image: linear-gradient(to bottom right, green, white);
+}
+h1, .buttons{ 
     text-align: center;
+}
+*{
+    font-family:monaco, Consolas, "Lucida Console", monospace;
 }
 .parent-container-of-game{
     display: flex;
@@ -16,4 +26,57 @@ h1{
    display: flex;
    align-items: center;
    justify-content: center;
+}
+#restart, #start{
+    margin-top: auto;
+    margin-bottom: 3em;
+    font-size: 20px;
+    font-family: monaco, Consolas, "Lucida Console", monospace;
+    border-radius: 10% / 50%;
+    
+}
+#restart{
+    display: none;
+}
+.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* so it stays in place */
+    z-index: 1; /* So it sit on top of the actual page */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color:  black; /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modContent{
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+#msg{
+    font-size: 18px;
+    font-family:monaco, Consolas, "Lucida Console", monospace;
+    color: black;
+}
+#grinch{
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: oblique;
+
+}
+.close{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover, .close:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
