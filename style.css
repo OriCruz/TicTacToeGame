@@ -6,7 +6,7 @@ body{
     margin: 0;
     background-image: linear-gradient(to bottom right, green, white);
 }
-h1, .buttons{ 
+h1, h3, #modalFooter,.buttons{ 
     text-align: center;
 }
 *{
@@ -27,6 +27,8 @@ h1, .buttons{
    display: flex;
    align-items: center;
    justify-content: center;
+   font-size: 4em;
+   font-family: 'Permanent Marker', cursive;
 }
 .box:nth-child(n+7){ 
     /*n fill from the bottom up till it get to wher eit needs to be leaving the top places unmarked
@@ -80,6 +82,10 @@ h1, .buttons{
     font-size: 18px;
     font-family:monaco, Consolas, "Lucida Console", monospace;
     color: black;
+}
+#modalFooter{
+    font-size: 20px;
+    font-weight: bolder;
 }
 #grinch{
     color: red;

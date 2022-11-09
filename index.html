@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    
     <h1>Tic Tac Toe</h1>
     <div class="buttons">
             <button id="start">START</button>
@@ -17,9 +18,14 @@
         </div>
         <div class="modal">
             <div class="modContent">
-                <span class="close">&times;</span>
+                
+                <div id="modalHeader">
+                    <span class="close">&times;</span> 
+                    <h3>Tic-Tac-Toe</h3> 
+                </div>
                 <div class="msg">
-                Welcome to Tic Tac Toe, <br> 
+                    <hr>
+                Welcome, <br> 
                 here you'll be playing againt <span id="grinch">THE GRINCH</span>. Here are the instructions: <br>
                 <ul>
                     <li>You are the X and the Grinch will be O.</li>
@@ -27,21 +33,23 @@
                     <li>The game will keep going until one of you wins or you draw.</li>
                 </ul>
                 Good luck! 
+                <hr>
+                <div id="modalFooter"></div>
             </div>
             </div>
         </div>
 
     <div class="parent-container-of-game">
         <div class="gameBoard">
-            <div class="box">1</div>
-            <div class="box">2</div>
-            <div class="box">3</div>
-            <div class="box">4</div>
-            <div class="box">5</div>
-            <div class="box">6</div>
-            <div class="box">7</div>
-            <div class="box">8</div>
-            <div class="box">9</div>
+            <div class="box" index="0"></div>
+            <div class="box" index="1"></div>
+            <div class="box" index="2"></div>
+            <div class="box" index="3"></div>
+            <div class="box" index="4"></div>
+            <div class="box" index="5"></div>
+            <div class="box" index="6"></div>
+            <div class="box" index="7"></div>
+            <div class="box" index="8"></div>
         </div>
     </div>
 </body>
