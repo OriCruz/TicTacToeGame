@@ -20,6 +20,7 @@ h1, .buttons{
     display: grid;
     grid-template-rows: 200px 200px 200px;
     grid-template-columns: 200px 200px 200px;
+    cursor: pointer;
 }
 .box{
    border: 1px solid black; 
@@ -27,13 +28,31 @@ h1, .buttons{
    align-items: center;
    justify-content: center;
 }
+.box:nth-child(n+7){ 
+    /*n fill from the bottom up till it get to wher eit needs to be leaving the top places unmarked
+    takes off the bottom row border*/
+    border-bottom: none;
+}
+.box:nth-child(-n+3){
+    /* -n fill the top places first until it gets where it needs to be leaving bottom sections untouched
+    takes off the border top of the 1st row*/
+    border-top: none;
+}
+.box:nth-child(3n+1){
+    /* multple of three and then adds one to go back into the first column and take off the left border*/
+    border-left: none;
+}
+.box:nth-child(3n){
+    /* selects the multuple of three which is the last row and takes off the right border*/
+    border-right:none;
+}
 #restart, #start{
     margin-top: auto;
     margin-bottom: 3em;
     font-size: 20px;
     font-family: monaco, Consolas, "Lucida Console", monospace;
     border-radius: 10% / 50%;
-    
+    cursor: pointer;
 }
 #restart{
     display: none;
