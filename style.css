@@ -3,9 +3,16 @@ html{
 }
 body{
     margin: 0;
-    background-image: linear-gradient(to bottom right, green, white);
+    /* background-image: linear-gradient(to bottom right, green, white); */
+    background-image: url('https://media4.giphy.com/media/MCiJygAUaNqZJsJPNG/giphy.gif?cid=ecf05e47uxyno0wd3peqmlpgwovzz2f3kc3jqd1clwvvwm73&rid=giphy.gif&ct=g');
+    /*doesn't allow the image to repeat if its too small to fit the whole page*/
+    background-repeat: no-repeat;
+    /* cover the entire container in this case the body */
+    background-size: cover;
+    
 }
 h1, h2, h3,.buttons{ 
+    color: whitesmoke;
     text-align: center;
 }
 h2{
@@ -26,7 +33,7 @@ h2{
     cursor: pointer;
 }
 .box{
-   border: 1px solid black; 
+   border: 1px solid whitesmoke; 
    display: flex;
    align-items: center;
    justify-content: center;
@@ -75,16 +82,16 @@ h2{
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 .modContent{
-    background-color: #fefefe;
+    background-color: rgb(22, 56, 22);
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
-#msg{
+.msg{
     font-size: 18px;
     font-family:monaco, Consolas, "Lucida Console", monospace;
-    color: black;
+    color: white;
 }
 
 #grinch{

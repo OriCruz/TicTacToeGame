@@ -3,6 +3,8 @@
 let modal = document.querySelector('.modal');
 let modalMsg = document.querySelector('.msg');
 let gameStatus = document.querySelector('.gameStatus');
+// changes the color of the game status
+gameStatus.style.color='white';
 let startBtn = document.querySelector('#start');
 let closeModal = document.querySelector('.close');
 let cells = document.querySelectorAll('.box');
@@ -71,6 +73,8 @@ function cellClicked (){
 function updateCell(cell, index){
     //prints the currentPlayer's value into the cell that is being clicked 
     trackOptions[index] = currentPlayer;
+    //changes the cell's color to white
+    cell.style.color='white';
     cell.innerHTML= currentPlayer;
    
 }
