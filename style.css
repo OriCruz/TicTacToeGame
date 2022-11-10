@@ -6,8 +6,12 @@ body{
     margin: 0;
     background-image: linear-gradient(to bottom right, green, white);
 }
-h1, h3, #modalFooter,.buttons{ 
+h1, h2, h3, #modalFooter,.buttons{ 
     text-align: center;
+}
+h2{
+    display: none;
+    margin-bottom: 2em;
 }
 *{
     font-family:monaco, Consolas, "Lucida Console", monospace;
@@ -50,7 +54,7 @@ h1, h3, #modalFooter,.buttons{
 }
 #restart, #start{
     margin-top: auto;
-    margin-bottom: 3em;
+    margin-bottom: 1em;
     font-size: 20px;
     font-family: monaco, Consolas, "Lucida Console", monospace;
     border-radius: 10% / 50%;
@@ -83,10 +87,7 @@ h1, h3, #modalFooter,.buttons{
     font-family:monaco, Consolas, "Lucida Console", monospace;
     color: black;
 }
-#modalFooter{
-    font-size: 20px;
-    font-weight: bolder;
-}
+
 #grinch{
     color: red;
     font-size: 20px;

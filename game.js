@@ -1,8 +1,8 @@
 // creating variables
 //#region 
 let modal = document.querySelector('.modal');
-let modalMsg = document.querySelector('.msg')
-let modalFooter = document.querySelector('#modalFooter');
+let modalMsg = document.querySelector('.msg');
+let gameStatus = document.querySelector('.gameStatus');
 let startBtn = document.querySelector('#start');
 let closeModal = document.querySelector('.close');
 let cells = document.querySelectorAll('.box');
@@ -30,36 +30,85 @@ let trackOptions = ["","","","","","","","",""]
 
 //#endregion
 
+startGame();
 // functions
 //#region 
-const startGame = ()=>{
-    gameRunning=true;
-    for (const cell of cells) {
-        cell.addEventListener('click(this)', cellClicked)//callback function implemented
+function startGame (){
+    
+    cells.forEach(cell=> {
+        cell.addEventListener('click', cellClicked);
+        
+    });//callback function implemented
         // Note to self a callback function is a function that gets invoked when an operation is completed. In this case once the event is clicked, the function is invoked
-    }
-    restartBtn.addEventListener('click', restartGame);
-    modalFooter.innerHTML = `It is ${currentPlayer}'s turn`;
-}
-const cellClicked = ()=>{
 
-    let cellIndex = this.getAttribute('index');//set the cell that is being clicked, to the HTML attribute of index. 
+    restartBtn.addEventListener('click', restartGame);
+    gameStatus.innerHTML = `It is ${currentPlayer}'s turn`;
+    gameRunning=true;
+}
+
+function cellClicked (){
+    const cellIndex = this.getAttribute('index');
     if(trackOptions[cellIndex] !== "" || !gameRunning){
         return;//does nothing
     }
-    else{
         updateCell(this, cellIndex);//passing the cell that is being cliked and its index
         checkResults();
-    }
+        console.log(currentPlayer);
+        console.log(cellIndex);
 }
-const updateCell =(cell, index)=>{
+
+function updateCell (cell, index){
     trackOptions[index] = currentPlayer;
     cell.innerHTML= currentPlayer;
+   
 }
-const checkResults =()=>{
 
+function changePlayer (){
+    console.log('player is changing');
+    if(currentPlayer == 'X') {
+        currentPlayer = 'O';
+    }
+    else {
+        currentPlayer = 'X';
+    }
+    gameStatus.innerHTML =`It's ${currentPlayer}'s turn`;
 }
-const restartGame=()=>{
+
+function checkResults() {
+    let roundWon =false;
+    for(let i =0; i<winCases.length; i++){
+        let condition = winCases[i];
+        //accessing the array inside of the winCases array. It's 2D array so we have to access the  first (like we did above) in order to access the second one.
+        let cell1 = trackOptions[condition[0]];
+        let cell2 = trackOptions[condition[1]];
+        let cell3 = trackOptions[condition[2]];
+
+        //if there are empty spaces we want to skip the iteration in the loop (skips if it's an empty stirng)
+        if(cell1 == '' || cell2 == '' || cell3 == ''){
+            continue;
+        }
+        //if the value inside of the trackOptions array equals to the wincase at position i and indexes 1 thru 2 roundWon to true and end the for loop
+        if(cell1 == cell2 && cell2 == cell3 ){
+            roundWon = true;
+            break;
+        }
+    }
+    //if roundWon is true display message currentPlayer win
+    if(roundWon){
+        gameStatus.innerHTML = `${currentPlayer} Wins!!`;
+        gameRunning = false;
+    }
+    //check for draw condition. If trackOptions doesn't include empty spaces it's a draw 
+    else if(!trackOptions.includes("")){
+        gameStatus.innerHTML = `It's a draw!`;
+        gameRunning = false;
+    }
+    else{
+        changePlayer();
+    }
+}
+
+ function restartGame(){
 
 }
 
@@ -68,6 +117,7 @@ const restartGame=()=>{
 //#region 
 startBtn.addEventListener('click', e =>{
     modal.style.display ='block';
+    gameStatus.style.display='block'
 });
  closeModal.addEventListener('click', e =>{
     modal.style.display = "none";
@@ -75,4 +125,3 @@ startBtn.addEventListener('click', e =>{
     startBtn.style.display='none';
  })
 //#endregion
-startGame();
