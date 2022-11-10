@@ -1,4 +1,4 @@
-// creating variables
+//variables
 //#region 
 let modal = document.querySelector('.modal');
 let modalMsg = document.querySelector('.msg');
@@ -8,7 +8,6 @@ let closeModal = document.querySelector('.close');
 let cells = document.querySelectorAll('.box');
 let restartBtn = document.querySelector('#restart');
 let gameRunning = false;//this will change once we start the game
-// store current player to know who's turn is it, this will be updated later on 
 let currentPlayer ='X';
 let winCases = [
     //row win
@@ -26,19 +25,32 @@ let winCases = [
     [2, 4, 6]
 ];
 // here we will store the options to then check against the winning options later on
-let trackOptions = ["","","","","","","","",""]
+let trackOptions = ["","","","","","","","",""];
 
 //#endregion
 
 startGame();
+
+// event listeners
+//#region 
+startBtn.addEventListener('click', e =>{
+    modal.style.display ='block';
+    gameStatus.style.display='block'
+});
+ closeModal.addEventListener('click', e =>{
+    modal.style.display = "none";
+    restartBtn.style.display ='inline-block';
+    startBtn.style.display='none';
+ })
+//#endregion
+
 // functions
 //#region 
 function startGame (){
     
     cells.forEach(cell=> {
-        cell.addEventListener('click', cellClicked);
-        
-    });//callback function implemented
+        cell.addEventListener('click', cellClicked);});
+        //callback function implemented
         // Note to self a callback function is a function that gets invoked when an operation is completed. In this case once the event is clicked, the function is invoked
 
     restartBtn.addEventListener('click', restartGame);
@@ -47,24 +59,24 @@ function startGame (){
 }
 
 function cellClicked (){
+    // here we store the index of the cell/box that is being selected
     const cellIndex = this.getAttribute('index');
     if(trackOptions[cellIndex] !== "" || !gameRunning){
         return;//does nothing
     }
         updateCell(this, cellIndex);//passing the cell that is being cliked and its index
         checkResults();
-        console.log(currentPlayer);
-        console.log(cellIndex);
 }
 
-function updateCell (cell, index){
+function updateCell(cell, index){
+    //prints the currentPlayer's value into the cell that is being clicked 
     trackOptions[index] = currentPlayer;
     cell.innerHTML= currentPlayer;
    
 }
 
-function changePlayer (){
-    console.log('player is changing');
+function changePlayer(){
+    // changes the player's value 
     if(currentPlayer == 'X') {
         currentPlayer = 'O';
     }
@@ -75,10 +87,13 @@ function changePlayer (){
 }
 
 function checkResults() {
+
     let roundWon =false;
-    for(let i =0; i<winCases.length; i++){
+    for(let i = 0; i<winCases.length; i++){
         let condition = winCases[i];
         //accessing the array inside of the winCases array. It's 2D array so we have to access the  first (like we did above) in order to access the second one.
+        // could've also done it like: wincases[i][0]
+        console.log(trackOptions);
         let cell1 = trackOptions[condition[0]];
         let cell2 = trackOptions[condition[1]];
         let cell3 = trackOptions[condition[2]];
@@ -109,19 +124,12 @@ function checkResults() {
 }
 
  function restartGame(){
-
+    currentPlayer = 'X';
+    trackOptions = ["","","","","","","","",""];
+    gameStatus.innerHTML = `${currentPlayer}'s turn`;
+    cells.forEach(cell=> cell.innerHTML='');
+    gameRunning=true;
 }
 
 //#endregion
-// event listeners
-//#region 
-startBtn.addEventListener('click', e =>{
-    modal.style.display ='block';
-    gameStatus.style.display='block'
-});
- closeModal.addEventListener('click', e =>{
-    modal.style.display = "none";
-    restartBtn.style.display ='inline-block';
-    startBtn.style.display='none';
- })
-//#endregion
+
