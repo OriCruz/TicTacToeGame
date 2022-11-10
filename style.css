@@ -19,6 +19,9 @@ h2{
     display: none;
     margin-bottom: 2em;
 }
+h3{
+    font-size: 22px;
+}
 *{
     font-family:monaco, Consolas, "Lucida Console", monospace;
 }
@@ -33,7 +36,7 @@ h2{
     cursor: pointer;
 }
 .box{
-   border: 1px solid whitesmoke; 
+   border: 4px solid whitesmoke; 
    display: flex;
    align-items: center;
    justify-content: center;
@@ -63,6 +66,9 @@ h2{
     margin-bottom: 1em;
     font-size: 20px;
     font-family: monaco, Consolas, "Lucida Console", monospace;
+    background-image:linear-gradient(to bottom right,rgb(89, 8, 8), green, rgb(89, 8, 8));
+    color: rgb(255, 255, 255);
+    border-color: white;
     border-radius: 10% / 50%;
     cursor: pointer;
 }
@@ -108,7 +114,7 @@ h2{
     font-weight: bold;
 }
 .close:hover, .close:focus{
-    color: black;
+    color: red;
     text-decoration: none;
     cursor: pointer;
 }
