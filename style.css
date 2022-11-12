@@ -3,7 +3,6 @@ html{
 }
 body{
     margin: 0;
-    /* background-image: linear-gradient(to bottom right, green, white); */
     background-image: url('https://media4.giphy.com/media/MCiJygAUaNqZJsJPNG/giphy.gif?cid=ecf05e47uxyno0wd3peqmlpgwovzz2f3kc3jqd1clwvvwm73&rid=giphy.gif&ct=g');
     /*doesn't allow the image to repeat if its too small to fit the whole page*/
     background-repeat: no-repeat;
@@ -63,14 +62,16 @@ h3{
 }
 #restart, #start{
     margin-top: auto;
-    margin-bottom: 1em;
+    margin-bottom: 5em;
     font-size: 20px;
     font-family: monaco, Consolas, "Lucida Console", monospace;
-    background-image:linear-gradient(to bottom right,rgb(89, 8, 8), green, rgb(89, 8, 8));
+    background-image:linear-gradient(to bottom right,rgb(250, 0, 0), green, rgb(255, 0, 0));
     color: rgb(255, 255, 255);
     border-color: white;
     border-radius: 10% / 50%;
     cursor: pointer;
+    width: 6em;
+    height: 3em;
 }
 #restart{
     display: none;
