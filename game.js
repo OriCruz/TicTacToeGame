@@ -2,15 +2,21 @@
 //#region 
 let modal = document.querySelector('.modal');
 let modalMsg = document.querySelector('.msg');
+let chooseO= document.querySelector('#choose-O');
+let chooseX= document.querySelector('#choose-X');
 let gameStatus = document.querySelector('.gameStatus');
+let gameCounter =document.querySelector('.games');
 // changes the color of the game status
 gameStatus.style.color='white';
+gameCounter.style.color='white';
 let startBtn = document.querySelector('#start');
 let closeModal = document.querySelector('.close');
 let cells = document.querySelectorAll('.box');
 let restartBtn = document.querySelector('#restart');
 let gameRunning = false;//this will change once we start the game
 let currentPlayer;
+let p1;
+let winsP1=0, winsP2=0;
 let winCases = [
     //row win
     [0, 1, 2],
@@ -38,13 +44,26 @@ let trackOptions = ["","","","","","","","",""];
 startBtn.addEventListener('click', e =>{
     modal.style.display ='block';
     gameStatus.style.display='block';
+    gameCounter.style.display='block';
+    
     startGame();
 });
- closeModal.addEventListener('click', e =>{
+chooseO.addEventListener('click', e=>{
+    p1='O';
     modal.style.display = "none";
     restartBtn.style.display ='inline-block';
     startBtn.style.display='none';
- })
+});
+chooseX.addEventListener('click', e=>{
+    p1='X';
+    modal.style.display = "none";
+    restartBtn.style.display ='inline-block';
+    startBtn.style.display='none';
+});
+closeModal.addEventListener('click', e=>{
+    modal.style.display='none';
+})
+
 //#endregion
 
 // functions
@@ -56,8 +75,11 @@ function startGame (){
         //callback function implemented
         // Note to self a callback function is a function that gets invoked when an operation is completed. In this case once the event is clicked, the function is invoked
 
-    restartBtn.addEventListener('click', restartGame);
+    restartBtn.addEventListener('click', e=> {
+        restartGame();
+    });
     gameStatus.innerHTML = `It is ${selectCurrentPlayer()}'s turn`;
+    gameCounter.textContent=`Player 1: ${winsP1} || Player 2: ${winsP2}`;
     gameRunning=true;
 }
 
@@ -71,10 +93,6 @@ function cellClicked (){
         checkResults();
 }
 
-// function computer(cell){
-//     // set a random number from 0 to 8 then call that index and place the computer's move there
-
-// }
 
 function updateCell(cell, index){
     //prints the currentPlayer's value into the cell that is being clicked 
@@ -123,8 +141,30 @@ function checkResults() {
     }
     //if roundWon is true display message currentPlayer win
     if(roundWon){
-        gameStatus.innerHTML = `${currentPlayer} Wins!!`;
+        if(currentPlayer == p1){
+        gameStatus.innerHTML = `Player 1 Wins!!`;
+        winsP1++;
+        gameCounter.textContent=`Player 1: ${winsP1} || Player 2: ${winsP2}`;
         gameRunning = false;
+        modal.style.display='block';
+        modalMsg.textContent = 'Player 1 wins! player 2 good luck next time!';
+        closeModal.style.display='block';
+        }
+        else{
+        gameStatus.innerHTML = `Player 2 Wins!!`;
+        // updates the rounds each player has win
+        winsP2++;
+        gameCounter.textContent=`Player 1: ${winsP1} || Player 2: ${winsP2}`;
+        // stops running the game
+        gameRunning = false;
+        // let imgLoser = document.createElement('img');
+        // imgLoser.src='https://media1.giphy.com/media/26n5ZZfTd3cBLoj2E/giphy.gif?cid=ecf05e4796p8kzjhg4789wrvjuz86i25efwdct8tufg9djaw&rid=giphy.gif&ct=g';
+        // document.getElementById('msgModal').appendChild(imgLoser);
+        modal.style.display='block';
+        modalMsg.textContent = 'Player 2 wins!  player 1 good luck next time!';
+        closeModal.style.display='block';
+        }
+ 
     }
     //check for draw condition. If trackOptions doesn't include empty spaces it's a draw 
     else if(!trackOptions.includes("")){
@@ -142,6 +182,7 @@ function checkResults() {
     gameStatus.innerHTML = `${currentPlayer}'s turn`;
     cells.forEach(cell=> cell.innerHTML='');
     gameRunning=true;
+
 }
 function selectCurrentPlayer(){
     playerNum = Math.floor(Math.random()*(2-1+1)+1);
@@ -152,7 +193,6 @@ function selectCurrentPlayer(){
         return currentPlayer='O';
     }
 }
-
 
 
 //#endregion

@@ -16,16 +16,19 @@
             <button id="start">START</button>
             <button id="restart">RESTART</button>
         </div>
-    <h2 class="gameStatus"></h2>
+        <div>
+            <h2 class="gameStatus"></h2>
+            <h2 class="games"></h2></div>
+    
         <div class="modal">
             <div class="modContent">
                 
                 <div id="modalHeader">
-                    <span class="close">&times;</span> 
                     <h3>Tic-Tac-Toe</h3> 
+                    <hr>
                 </div>
                 <div class="msg">
-                    <hr>
+                    
                 Welcome, <br> 
                 here you'll be playing againt <span id="grinch">THE GRINCH</span>. Here are the instructions: <br>
                 <ul>
@@ -33,11 +36,16 @@
                     <li>Click on the place you want your move to be. Once you place your move, it is the Grinch's turn</li>
                     <li>The game will keep going until one of you wins or you draw.</li>
                 </ul>
-                Good luck! 
+                Pick player one: (this does not determine who is startting first)
+                <div class="choice">
+                    <div id="choose-X">X</div>
+                    <div id="choose-O">O</div>
+                </div>
                 
             </div>
+            <hr>
             <section id="modalFooter">
-                
+                <button class="close">Close</button>
             </section>
             </div>
         </div>
