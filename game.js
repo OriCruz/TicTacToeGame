@@ -141,13 +141,19 @@ function checkResults() {
     }
     //if roundWon is true display message currentPlayer win
     if(roundWon){
+        modalMsg.textContent ='';
         if(currentPlayer == p1){
         gameStatus.innerHTML = `Player 1 Wins!!`;
         winsP1++;
         gameCounter.textContent=`Player 1: ${winsP1} || Player 2: ${winsP2}`;
         gameRunning = false;
         modal.style.display='block';
-        modalMsg.textContent = 'Player 1 wins! player 2 good luck next time!';
+        let msg = document.createElement('p');
+        msg.textContent='Player 1 wins! player 2 good luck next time!';
+        let imgWinner = document.createElement('img');
+        imgWinner.src='https://media2.giphy.com/media/3otPoFIPdGqzjUWpeE/giphy.gif?cid=ecf05e47t5utmppt60mx06xqzwgg578ibx1cnto2hd5w2xg8&rid=giphy.gif&ct=g';
+        modalMsg.appendChild(msg);
+        modalMsg.appendChild(imgWinner);
         closeModal.style.display='block';
         }
         else{
@@ -157,11 +163,14 @@ function checkResults() {
         gameCounter.textContent=`Player 1: ${winsP1} || Player 2: ${winsP2}`;
         // stops running the game
         gameRunning = false;
-        // let imgLoser = document.createElement('img');
-        // imgLoser.src='https://media1.giphy.com/media/26n5ZZfTd3cBLoj2E/giphy.gif?cid=ecf05e4796p8kzjhg4789wrvjuz86i25efwdct8tufg9djaw&rid=giphy.gif&ct=g';
-        // document.getElementById('msgModal').appendChild(imgLoser);
+        let msg = document.createElement('p');
+        msg.textContent='Player 2 wins!  player 1 good luck next time!'
+        let imgLoser = document.createElement('img');
+        imgLoser.src='https://media1.giphy.com/media/26n5ZZfTd3cBLoj2E/giphy.gif?cid=ecf05e4796p8kzjhg4789wrvjuz86i25efwdct8tufg9djaw&rid=giphy.gif&ct=g';
+        modalMsg.appendChild(msg);
+        modalMsg.appendChild(imgLoser);
+    
         modal.style.display='block';
-        modalMsg.textContent = 'Player 2 wins!  player 1 good luck next time!';
         closeModal.style.display='block';
         }
  
