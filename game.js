@@ -118,27 +118,14 @@ function checkResults() {
 
     let roundWon =false;
     // we want to go thru each element of the winCases array. and then compare the  
-    for(let i = 0; i<winCases.length; i++){
-        let condition = winCases[i];
-        //accessing the array inside of the winCases array. It's 2D array so we have to access the main (like we did above) in order to access the second one.
-        //could've also done it like: wincases[i][0]
-        console.log(trackOptions);
-        let cell1 = trackOptions[condition[0]];
-        let cell2 = trackOptions[condition[1]];
-        let cell3 = trackOptions[condition[2]];
-        console.log(cell1)
-        console.log(cell2)
-        console.log(cell3)
-        //if there are empty spaces we want to skip the iteration in the loop (skips if it's an empty stirng)
-        if(cell1 == '' || cell2 == '' || cell3 == ''){
-            continue;
+        for(let winCase of winCases){
+            let [position1, position2, position3] = winCase;//extracts each sub-array or element inside of winCases
+            if(trackOptions[position1]!='' && trackOptions[position1]==trackOptions[position2] && trackOptions[position1]== trackOptions[position3]){
+                roundWon = true;
+                break;
+            }
         }
-        //if the value inside of the trackOptions array equals to the wincase at position i and indexes 1 thru 2 roundWon to true and end the for loop
-        if(cell1 == cell2 && cell2 == cell3 ){
-            roundWon = true;
-            break;
-        }
-    }
+
     //if roundWon is true display message currentPlayer win
     if(roundWon){
         modalMsg.textContent ='';
