@@ -9,5 +9,12 @@ This is the christmas version of the classic game of tic tac toe. Where the play
 - If neither can get a win a draw message will display. 
 
 ## How the project looks
-
+1. Beginnning of the game:
 ![gameImg](./images/TicTacToe_ReadMe1.png);
+
+2. Welcome/Instructions:
+![gameImg](./images/TicTacToe_ReadMe2.png);
+
+3. 
+![gameImg](./images/TicTacToe_ReadMe3.png);
+
