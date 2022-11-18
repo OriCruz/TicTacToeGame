@@ -10,11 +10,17 @@ This is the christmas version of the classic game of tic tac toe. Where the play
 
 ## How the project looks
 1. Beginnning of the game:
-![gameImg](./images/TicTacToe_ReadMe1.png);
+![gameImg](./images/TicTacToe_ReadMe1.png)
 
 2. Welcome/Instructions:
-![gameImg](./images/TicTacToe_ReadMe2.png);
+![gameImg](./images/TicTacToe_ReadMe2.png)
 
-3. 
-![gameImg](./images/TicTacToe_ReadMe3.png);
+3.Player 2 wins: 
+![gameImg](./images/TicTacToe_ReadMe3.png)
+
+4.
+![gameImg](./images/TicTacToe_ReadMe4.png)
+
+5.
+![gameImg](./images/TicTacToe_ReadMe5.png)
 
