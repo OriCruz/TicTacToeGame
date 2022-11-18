@@ -39,9 +39,12 @@ This is the christmas version of the classic game of tic tac toe. Where the play
 - **JavaScript** for DOM manipulation.
 
 ## Acknoledgements
-Images: 
-- https://giphy.com/
+Images:
+ 
+- https://giphy.com/  
+
 Resources: 
+
 - https://dev.to/bornasepic/pure-and-simple-tic-tac-toe-with-javascript-4pgn
 - https://www.youtube.com/watch?v=AnmwHjpEhtA&t=12s
 - Cycle 28 Per Scholas team.
